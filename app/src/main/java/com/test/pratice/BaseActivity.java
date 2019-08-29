@@ -24,10 +24,11 @@ public class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
-    @Subscribe
+    @com.test.pratice.eventbus.Subscribe(threadMode= com.test.pratice.eventbus.ThreadMode.BACKGROUND)
     public void onEvent(Book book){
-        Log.i("========","========BaseActivitybook");
+        Log.i("========","========BaseActivitybook"+Thread.currentThread().getName());
     }
+    @Subscribe
     public void onEve2222nt(Book book){
         Log.i("========","========BaseActivitybook");
     }

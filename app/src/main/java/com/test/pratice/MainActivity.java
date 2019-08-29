@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.test.pratice.bean.Book;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
+import com.test.pratice.eventbus.MyBus;
 
 public class MainActivity extends BaseActivity {
 
@@ -15,11 +13,16 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 //        EventBus.getDefault().register(this);
         setContentView(R.layout.activity_main);
-        EventBus.getDefault().post(new Book());
+
+        MyBus.get().register(this);
+
+        MyBus.get().post(new Book());
+
+//        EventBus.getDefault().post(new Book());
     }
-    @Subscribe
+    @com.test.pratice.eventbus.Subscribe(threadMode= com.test.pratice.eventbus.ThreadMode.MAIN)
     public void onEven1t(Book book){
-        Log.i("========","=======book");
+        Log.i("========","=======book"+Thread.currentThread().getName());
     }
 
     @Override
