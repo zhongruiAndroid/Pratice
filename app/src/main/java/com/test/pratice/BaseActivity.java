@@ -7,7 +7,6 @@ import android.util.Log;
 
 import com.test.pratice.bean.Book;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 /***
@@ -17,12 +16,12 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
+//        EventBus.getDefault().register(this);
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+//        EventBus.getDefault().unregister(this);
     }
     @com.test.pratice.eventbus.Subscribe(threadMode= com.test.pratice.eventbus.ThreadMode.BACKGROUND)
     public void onEvent(Book book){
