@@ -14,4 +14,17 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+    @Test
+    public void a() {
+        test();
+    }
+    public void test(String...values){
+        test2(values);
+    }
+
+    public void test2(String[]values){
+        for (int i = 0; i < values.length; i++) {
+            System.out.println(values[i]);
+        }
+    }
 }
